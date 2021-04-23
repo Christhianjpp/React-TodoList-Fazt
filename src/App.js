@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import tasks from './sample/tasks.json'
 import Tasks from './componets/Tasks.js'
 
-
+import TaskForm from './componets/taskForm.js'
 
 class App extends Component {
     state = {
@@ -26,10 +26,21 @@ class App extends Component {
         this.setState({ tasks: newTask })
     }
 
+    addTask = (title, description) => {
+        const newTask = {
+            title,
+            description,
+            id: this.state.tasks.length
 
+        }
+        this.setState({
+            tasks: [...this.state.tasks, newTask]
+        })
+    }
     render() {
         return (
             <div>
+                <TaskForm addTask={this.addTask} />
                 <Tasks tasks={this.state.tasks}
                     checkDone={this.checkDone}
                     deleteTask={this.deleteTask}
