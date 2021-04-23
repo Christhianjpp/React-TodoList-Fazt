@@ -7,7 +7,7 @@ class Tasks extends Component {
             this.props.tasks.map(task =>
                 <Task task={task}
                     key={task.id}
-                    onChange={this.props.onChange}
+                    checkDone={this.props.checkDone}
                 />)
         )
     }

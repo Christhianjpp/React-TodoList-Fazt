@@ -10,10 +10,24 @@ class App extends Component {
         tasks: tasks
     }
 
+
+    checkDone = (id) => {
+        const newTask = this.state.tasks.map(tasks => {
+            if (tasks.id === id) {
+                tasks.done = !tasks.done
+            }
+            return tasks
+        })
+        this.setState({ tasks: newTask })
+    }
+
+
     render() {
         return (
             <div>
-                <Tasks tasks={this.state.tasks} />
+                <Tasks tasks={this.state.tasks}
+                    checkDone={this.checkDone}
+                />
             </div>
         )
     }

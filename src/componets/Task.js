@@ -18,7 +18,7 @@ class Task extends Component {
                     {task.title} -
                     {task.description} -
                     {task.id} --
-                    <input type="checkbox" />
+                    <input type="checkbox" onChange={this.props.checkDone.bind(this, task.id)} />
                     <button style={btnX} >x</button>
                 </p>
             </div>
